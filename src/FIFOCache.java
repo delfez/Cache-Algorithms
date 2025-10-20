@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class FIFOCache<K> {
+public class FIFOCache {
     private final int capacidade; //capacidade do mapa
-    private final List<K> memoria; //mapa que guarda a chave tipo K e o valor tipo V
-    private int maisAntigo;
+    private final List<Integer> memoria; //lista que guarda a chave tipo K
+    private int maisAntigo; //guarda indice do elemento mais antigo
 
     public FIFOCache(int capacidade) {
         this.capacidade = capacidade;
@@ -11,7 +11,7 @@ public class FIFOCache<K> {
         this.maisAntigo = 0;
     }
 
-    public void acessar(K key) {
+    public void acessar(Integer key) {
 
         if (memoria.contains(key)) return; //se a pagina estiver na memoria nada precisa ser feito
 
@@ -27,7 +27,7 @@ public class FIFOCache<K> {
 
     public void exibirMemoria(){
         int i = 1;
-        for (K m : memoria){
+        for (Integer m : memoria){
             System.out.print("Q"+i+": "+m+"   ");
             i++;
         }

@@ -3,17 +3,17 @@
 public class Main {
     public static void main(String[] args) {
 
-        MRUCache<Integer> cacheMRU = new MRUCache<>(8);
-        LRUCache<Integer> cacheLRU = new LRUCache<>(8);
-        FIFOCache<Integer> cacheFIFO = new FIFOCache<>(8);
+        MRUCache cacheMRU = new MRUCache(8);
+        LRUCache cacheLRU = new LRUCache(8);
+        FIFOCache cacheFIFO = new FIFOCache(8);
 
-        MRUCache<Integer> cacheMRU2 = new MRUCache<>(8);
-        LRUCache<Integer> cacheLRU2 = new LRUCache<>(8);
-        FIFOCache<Integer> cacheFIFO2 = new FIFOCache<>(8);
+        MRUCache cacheMRU2 = new MRUCache(8);
+        LRUCache cacheLRU2 = new LRUCache(8);
+        FIFOCache cacheFIFO2 = new FIFOCache(8);
 
-        MRUCache<Integer> cacheMRU3 = new MRUCache<>(8);
-        LRUCache<Integer> cacheLRU3 = new LRUCache<>(8);
-        FIFOCache<Integer> cacheFIFO3 = new FIFOCache<>(8);
+        MRUCache cacheMRU3 = new MRUCache(8);
+        LRUCache cacheLRU3 = new LRUCache(8);
+        FIFOCache cacheFIFO3 = new FIFOCache(8);
 
 
         int[] teste1 = {4,3,25,8,19,6,25,8,16,35,45,22,8,3,16,25,7};

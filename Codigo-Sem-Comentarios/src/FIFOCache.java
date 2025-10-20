@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class FIFOCache<K> {
+public class FIFOCache {
     private final int capacidade;
-    private final List<K> memoria;
+    private final List<Integer> memoria;
     private int maisAntigo;
 
     public FIFOCache(int capacidade) {
@@ -11,9 +11,10 @@ public class FIFOCache<K> {
         this.maisAntigo = 0;
     }
 
-    public void acessar(K key) {
+    public void acessar(Integer key) {
 
         if (memoria.contains(key)) return;
+
 
         if (memoria.size() == capacidade) {
             memoria.remove(maisAntigo);
@@ -26,7 +27,7 @@ public class FIFOCache<K> {
 
     public void exibirMemoria(){
         int i = 1;
-        for (K m : memoria){
+        for (Integer m : memoria){
             System.out.print("Q"+i+": "+m+"   ");
             i++;
         }

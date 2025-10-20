@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class MRUCache<K> {
+public class MRUCache {
     private final int capacidade;
-    private final List<K> memoria;
-    private final Deque<K> pilha;
+    private final List<Integer> memoria;
+    private final Deque<Integer> pilha;
 
     public MRUCache(int capacidade) {
         this.capacidade = capacidade;
@@ -11,17 +11,17 @@ public class MRUCache<K> {
         this.pilha = new ArrayDeque<>();
     }
 
-    public void acessar(K key) {
+    public void acessar(Integer key) {
         if (memoria.contains(key)) {
             pilha.remove(key);
             pilha.addLast(key);
         } else {
             if (memoria.size() == capacidade) {
-                K remover = pilha.removeLast();
+                Integer remover = pilha.removeLast();
                 int indice = memoria.indexOf(remover);
                 memoria.set(indice, key);
             } else {
-                memoria.add(key);
+                memoria.add(key); 
             }
             pilha.addLast(key);
         }
@@ -29,7 +29,7 @@ public class MRUCache<K> {
 
     public void exibirMemoria(){
         int i = 1;
-        for (K m : memoria){
+        for (Integer m : memoria){
             System.out.print("Q"+i+": "+m+"   ");
             i++;
         }

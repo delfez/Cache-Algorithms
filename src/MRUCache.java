@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class MRUCache<K> {
-    private final int capacidade; //capacidade do mapa
-    private final List<K> memoria; //mapa que guarda a chave tipo K e o valor tipo V
-    private final Deque<K> pilha; //interface "double ended queue" de fila com duas pontas. Guarda valores do tipo K
+public class MRUCache {
+    private final int capacidade; //capacidade da memoria
+    private final List<Integer> memoria; //lista que guarda a chave K
+    private final Deque<Integer> pilha; //interface "double ended queue" de fila com duas pontas. Guarda valores do tipo K
 
     public MRUCache(int capacidade) {
         this.capacidade = capacidade;
@@ -11,14 +11,14 @@ public class MRUCache<K> {
         this.pilha = new ArrayDeque<>(); //implementação de array dequeue de tamanho flexivel
     }
 
-    public void acessar(K key) {
+    public void acessar(Integer key) {
         if (memoria.contains(key)) {
             // hit: só atualiza a pilha
             pilha.remove(key);
             pilha.addLast(key);
         } else {
             if (memoria.size() == capacidade) { //se a memoria estiver cheia
-                K remover = pilha.removeLast(); // MRU
+                Integer remover = pilha.removeLast(); // MRU
                 int indice = memoria.indexOf(remover); // pega posição do item removido
                 memoria.set(indice, key);          // substitui pelo novo
             } else {
@@ -30,7 +30,7 @@ public class MRUCache<K> {
 
     public void exibirMemoria(){
         int i = 1;
-        for (K m : memoria){
+        for (Integer m : memoria){
             System.out.print("Q"+i+": "+m+"   ");
             i++;
         }
